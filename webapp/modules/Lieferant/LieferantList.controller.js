@@ -1,4 +1,11 @@
-sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/model/json/JSONModel", "sap/ui/core/Fragment", "sap/m/MessageToast"], function (BaseController, JSONModel, Fragment, MessageToast) {
+sap.ui.define([
+  "de/bauerberatung/ui5-task/controller/BaseController", 
+  "sap/ui/model/json/JSONModel", 
+  "sap/ui/core/Fragment", 
+  "sap/m/MessageToast",
+  "sap/ui/model/Filter",
+  "sap/ui/model/FilterOperator"
+], function (BaseController, JSONModel, Fragment, MessageToast, Filter, FilterOperator) {
   "use strict";
   return BaseController.extend("de.bauerberatung.ui5-task.modules.Lieferant.LieferantList", {
     onInit: function () {
@@ -13,11 +20,22 @@ sap.ui.define(["de/bauerberatung/ui5-task/controller/BaseController", "sap/ui/mo
       this.getModel("AppModel").setProperty("/layout", sLayout);
     },
 
-    onSearch: function () {
+    onSearch: function (oEvent) {
       // #TodoFilter
 
       // Referenz auf die Liste
       var oList = this.getView().byId("supplierList");
+
+      // Filter-Array
+      var aFilter = [];
+      var sQuery = oEvent.getParameter("query");
+      if (sQuery) {
+        aFilter.push(new Filter("SupplierID", FilterOperator.Contains, sQuery));
+      }
+
+      // Filter binding
+      var oBinding = oList.getBinding("items").filter(aFilter);
+      oBinding.filter(aFilter);
     },
 
     onRefreshSupplier: function () {
