@@ -30,7 +30,14 @@ sap.ui.define([
       var aFilter = [];
       var sQuery = oEvent.getParameter("query");
       if (sQuery) {
-        aFilter.push(new Filter("SupplierID", FilterOperator.Contains, sQuery));
+        aFilter.push(new Filter({
+          filters: [
+            new Filter("SupplierID", FilterOperator.Contains, sQuery),
+            new Filter("CompanyName", FilterOperator.Contains, sQuery),
+          ],
+          and: false,
+          or: true,
+        }));
       }
 
       // Filter binding
