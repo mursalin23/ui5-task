@@ -75,6 +75,28 @@
       "Region": "IL",
       "PostalCode": "48100",
       "Country": "Italy"
+    },
+    {
+      "SupplierID": "L008",
+      "CompanyName": "Fabbrica di Saperi Alimentari S.p.A.",
+      "ContactName": "Giorgio Bianchi",
+      "ContactTitle": "Sales Manager",
+      "Address": "Via Roma, 123",
+      "City": "Milano",
+      "Region": "LOM",
+      "PostalCode": "20123",
+      "Country": "Italy"
+    },
+    {
+      "SupplierID": "L009",
+      "CompanyName": "Consorzio Produttori di Formaggi Tipici Italiani",
+      "ContactName": "Paolo Rossi",
+      "ContactTitle": "President",
+      "Address": "Piazza del Duomo, 1",
+      "City": "Firenze",
+      "Region": "TOS",
+      "PostalCode": "50123",
+      "Country": "Italy"
     }
   ]
 }
